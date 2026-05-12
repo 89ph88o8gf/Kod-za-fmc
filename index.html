@@ -1,0 +1,135 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safer Choide</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, sans-serif;
+      background:#0f172a;
+      color:white;
+    }
+
+    header{
+      padding:20px 50px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:#111827;
+      border-bottom:1px solid #1e293b;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
+    }
+
+    nav{
+      display:flex;
+      gap:25px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    .hero{
+      min-height:85vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:600px;
+      font-size:18px;
+      color:#cbd5e1;
+      margin-bottom:30px;
+    }
+
+    button{
+      padding:14px 28px;
+      border:none;
+      border-radius:10px;
+      background:#38bdf8;
+      color:black;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#0ea5e9;
+    }
+
+    footer{
+      padding:20px;
+      text-align:center;
+      background:#111827;
+      border-top:1px solid #1e293b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Safer Choide</div>
+
+    <nav>
+      <a href="#">Početna</a>
+      <a href="#">O nama</a>
+      <a href="#">Kontakt</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Safer Choide</h1>
+
+    <p>
+      Skeleton website spreman za dalji razvoj.
+    </p>
+
+    <button onclick="showMessage()">
+      Započni
+    </button>
+  </section>
+
+  <footer>
+    © 2026 Safer Choide
+  </footer>
+
+  <script>
+    function showMessage(){
+      alert("Dobrodošao na Safer Choide!");
+    }
+  </script>
+
+</body>
+</html>
