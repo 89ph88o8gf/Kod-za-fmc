@@ -1,507 +1,1113 @@
-
-   <!DOCTYPE html>
-<html lang="sr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Safer Choice | Smart Security Platform</title>
+
+  <title>Safer Choice | Software Development Project</title>
+
+  <meta
+    name="description"
+    content="Safer Choice is a software development project focused on personal safety, mobile applications, real-time communication and intelligent safety systems."
+  />
+
+  <meta
+    name="keywords"
+    content="Safer Choice, software development, Flutter, Dart, mobile application, Android, Firebase, API, personal safety"
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:'Inter', sans-serif;
-      background:#07111f;
-      color:white;
-      overflow-x:hidden;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07111f;
+      color: white;
+      overflow-x: hidden;
     }
 
-    .background-glow{
-      position:fixed;
-      width:700px;
-      height:700px;
-      background:radial-gradient(circle, rgba(0,255,200,0.15) 0%, transparent 70%);
-      top:-250px;
-      right:-200px;
-      z-index:-1;
+    .background-glow {
+      position: fixed;
+      width: 700px;
+      height: 700px;
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,255,200,0.15) 0%,
+          transparent 70%
+        );
+      top: -250px;
+      right: -200px;
+      z-index: -1;
     }
 
-    header{
-      width:100%;
-      padding:25px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:fixed;
-      top:0;
-      backdrop-filter:blur(14px);
-      background:rgba(7,17,31,0.7);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:1000;
+    header {
+      width: 100%;
+      padding: 22px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: fixed;
+      top: 0;
+
+      backdrop-filter: blur(14px);
+
+      background: rgba(7,17,31,0.78);
+
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+
+      z-index: 1000;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:800;
-      color:#4dfccf;
-      letter-spacing:1px;
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #4dfccf;
+      letter-spacing: 1px;
     }
 
-    nav{
-      display:flex;
-      gap:30px;
+    nav {
+      display: flex;
+      gap: 28px;
     }
 
-    nav a{
-      text-decoration:none;
-      color:#d8e3f0;
-      transition:0.3s;
-      font-weight:500;
+    nav a {
+      text-decoration: none;
+      color: #d8e3f0;
+      transition: 0.3s;
+      font-weight: 500;
     }
 
-    nav a:hover{
-      color:#4dfccf;
+    nav a:hover {
+      color: #4dfccf;
     }
 
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:140px 8% 80px;
-      gap:60px;
-      flex-wrap:wrap;
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 150px 8% 80px;
+
+      gap: 60px;
+      flex-wrap: wrap;
     }
 
-    .hero-text{
-      flex:1;
-      min-width:300px;
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
     }
 
-    .hero-text h1{
-      font-size:72px;
-      line-height:1.05;
-      margin-bottom:25px;
-      font-weight:800;
+    .badge {
+      display: inline-block;
+
+      padding: 8px 14px;
+
+      border-radius: 30px;
+
+      background: rgba(77,252,207,0.08);
+
+      border: 1px solid rgba(77,252,207,0.25);
+
+      color: #4dfccf;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      margin-bottom: 22px;
+
+      letter-spacing: 0.5px;
     }
 
-    .hero-text h1 span{
-      color:#4dfccf;
+    .hero-text h1 {
+      font-size: 68px;
+
+      line-height: 1.05;
+
+      margin-bottom: 25px;
+
+      font-weight: 800;
     }
 
-    .hero-text p{
-      font-size:20px;
-      line-height:1.8;
-      color:#b7c6d8;
-      max-width:700px;
-      margin-bottom:40px;
+    .hero-text h1 span {
+      color: #4dfccf;
     }
 
-    .buttons{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
+    .hero-text p {
+      font-size: 19px;
+
+      line-height: 1.8;
+
+      color: #b7c6d8;
+
+      max-width: 720px;
+
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+
+      gap: 15px;
+
+      flex-wrap: wrap;
     }
 
     .primary-btn,
-    .secondary-btn{
-      padding:16px 34px;
-      border-radius:14px;
-      text-decoration:none;
-      font-weight:700;
-      transition:0.3s;
-      display:inline-block;
+    .secondary-btn {
+      padding: 15px 28px;
+
+      border-radius: 14px;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      transition: 0.3s;
+
+      display: inline-block;
     }
 
-    .primary-btn{
-      background:#4dfccf;
-      color:#041019;
-      box-shadow:0 0 30px rgba(77,252,207,0.35);
+    .primary-btn {
+      background: #4dfccf;
+
+      color: #041019;
+
+      box-shadow:
+        0 0 30px rgba(77,252,207,0.25);
     }
 
-    .primary-btn:hover{
-      transform:translateY(-4px);
+    .primary-btn:hover {
+      transform: translateY(-4px);
     }
 
-    .secondary-btn{
-      border:1px solid rgba(255,255,255,0.15);
-      color:white;
-      background:rgba(255,255,255,0.04);
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.15);
+
+      color: white;
+
+      background: rgba(255,255,255,0.04);
     }
 
-    .secondary-btn:hover{
-      background:rgba(255,255,255,0.09);
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.09);
     }
 
-    .hero-card{
-      flex:1;
-      min-width:320px;
-      background:linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:28px;
-      padding:35px;
-      backdrop-filter:blur(18px);
-      box-shadow:0 20px 60px rgba(0,0,0,0.35);
+    .hero-card {
+      flex: 1;
+
+      min-width: 320px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.08),
+          rgba(255,255,255,0.03)
+        );
+
+      border: 1px solid rgba(255,255,255,0.08);
+
+      border-radius: 28px;
+
+      padding: 35px;
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
     }
 
-    .status{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:25px;
-      color:#a9ffd8;
-      font-weight:600;
+    .terminal-header {
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      margin-bottom: 20px;
     }
 
-    .dot{
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background:#4dfccf;
-      box-shadow:0 0 15px #4dfccf;
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #4dfccf;
     }
 
-    .scan-box{
-      background:#081521;
-      border-radius:20px;
-      padding:24px;
-      margin-top:15px;
-      border:1px solid rgba(255,255,255,0.05);
+    .terminal-title {
+      color: #9fb2c7;
+
+      font-size: 13px;
+
+      margin-left: 8px;
     }
 
-    .scan-item{
-      display:flex;
-      justify-content:space-between;
-      margin:18px 0;
-      color:#dce6f2;
+    .terminal {
+      background: #050c15;
+
+      border-radius: 18px;
+
+      padding: 24px;
+
+      border: 1px solid rgba(255,255,255,0.05);
+
+      font-family: monospace;
+
+      line-height: 1.9;
+
+      color: #b7c6d8;
+
+      overflow-x: auto;
     }
 
-    .safe{
-      color:#4dfccf;
-      font-weight:700;
+    .green {
+      color: #4dfccf;
     }
 
-    .warning{
-      color:#ffce6a;
-      font-weight:700;
+    .blue {
+      color: #74b9ff;
     }
 
-    .section{
-      padding:110px 8%;
+    .yellow {
+      color: #ffce6a;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:70px;
+    .section {
+      padding: 110px 8%;
     }
 
-    .section-title h2{
-      font-size:52px;
-      margin-bottom:18px;
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 65px;
     }
 
-    .section-title p{
-      color:#9cb0c6;
-      max-width:750px;
-      margin:auto;
-      line-height:1.8;
-      font-size:18px;
+    .section-title h2 {
+      font-size: 48px;
+
+      margin-bottom: 18px;
     }
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
-      gap:30px;
+    .section-title p {
+      color: #9cb0c6;
+
+      max-width: 780px;
+
+      margin: auto;
+
+      line-height: 1.8;
+
+      font-size: 18px;
     }
 
-    .feature-card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.06);
-      border-radius:24px;
-      padding:35px;
-      transition:0.35s;
+    .features {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+      gap: 25px;
     }
 
-    .feature-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(77,252,207,0.3);
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+
+      border: 1px solid rgba(255,255,255,0.06);
+
+      border-radius: 24px;
+
+      padding: 32px;
+
+      transition: 0.35s;
     }
 
-    .feature-card h3{
-      margin-bottom:18px;
-      font-size:24px;
+    .feature-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(77,252,207,0.3);
     }
 
-    .feature-card p{
-      color:#adc0d4;
-      line-height:1.7;
+    .feature-number {
+      color: #4dfccf;
+
+      font-family: monospace;
+
+      font-size: 14px;
+
+      margin-bottom: 15px;
     }
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-      gap:30px;
-      margin-top:50px;
+    .feature-card h3 {
+      margin-bottom: 15px;
+
+      font-size: 23px;
     }
 
-    .stat-card{
-      background:linear-gradient(145deg, rgba(77,252,207,0.12), rgba(255,255,255,0.03));
-      padding:40px;
-      border-radius:22px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.05);
+    .feature-card p {
+      color: #adc0d4;
+
+      line-height: 1.7;
     }
 
-    .stat-card h3{
-      font-size:52px;
-      color:#4dfccf;
-      margin-bottom:10px;
+    .tech-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+      gap: 18px;
+
+      max-width: 1000px;
+
+      margin: auto;
     }
 
-    .cta{
-      text-align:center;
-      background:linear-gradient(145deg, rgba(77,252,207,0.1), rgba(255,255,255,0.03));
-      margin:80px 8%;
-      padding:80px 30px;
-      border-radius:30px;
-      border:1px solid rgba(255,255,255,0.08);
+    .tech {
+      padding: 25px;
+
+      text-align: center;
+
+      border-radius: 18px;
+
+      background: rgba(255,255,255,0.04);
+
+      border: 1px solid rgba(255,255,255,0.07);
     }
 
-    .cta h2{
-      font-size:54px;
-      margin-bottom:20px;
+    .tech strong {
+      display: block;
+
+      color: #4dfccf;
+
+      font-size: 20px;
+
+      margin-bottom: 8px;
     }
 
-    .cta p{
-      color:#b4c3d5;
-      max-width:700px;
-      margin:0 auto 35px;
-      line-height:1.8;
-      font-size:18px;
+    .tech span {
+      color: #9fb2c7;
+
+      font-size: 14px;
     }
 
-    footer{
-      padding:40px 8%;
-      border-top:1px solid rgba(255,255,255,0.08);
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:20px;
-      color:#9eb2c7;
+    .architecture {
+      max-width: 1000px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 20px;
     }
 
-    @media(max-width:900px){
-      .hero{
-        flex-direction:column;
-        text-align:center;
+    .architecture-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(77,252,207,0.08),
+          rgba(255,255,255,0.03)
+        );
+
+      border: 1px solid rgba(255,255,255,0.07);
+
+      border-radius: 20px;
+
+      padding: 30px;
+    }
+
+    .architecture-card h3 {
+      color: #4dfccf;
+
+      margin-bottom: 12px;
+    }
+
+    .architecture-card p {
+      color: #aebed0;
+
+      line-height: 1.7;
+    }
+
+    .stats {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: 25px;
+
+      margin-top: 50px;
+    }
+
+    .stat-card {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(77,252,207,0.12),
+          rgba(255,255,255,0.03)
+        );
+
+      padding: 35px;
+
+      border-radius: 22px;
+
+      text-align: center;
+
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stat-card h3 {
+      font-size: 45px;
+
+      color: #4dfccf;
+
+      margin-bottom: 10px;
+    }
+
+    .stat-card p {
+      color: #aebed0;
+    }
+
+    .cta {
+      text-align: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(77,252,207,0.1),
+          rgba(255,255,255,0.03)
+        );
+
+      margin: 80px 8%;
+
+      padding: 75px 30px;
+
+      border-radius: 30px;
+
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .cta h2 {
+      font-size: 48px;
+
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #b4c3d5;
+
+      max-width: 720px;
+
+      margin: 0 auto 35px;
+
+      line-height: 1.8;
+
+      font-size: 18px;
+    }
+
+    footer {
+      padding: 40px 8%;
+
+      border-top:
+        1px solid rgba(255,255,255,0.08);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 20px;
+
+      color: #9eb2c7;
+    }
+
+    footer a {
+      color: #4dfccf;
+
+      text-decoration: none;
+    }
+
+    @media(max-width:900px) {
+
+      .hero {
+        flex-direction: column;
+
+        text-align: center;
       }
 
-      .buttons{
-        justify-content:center;
+      .buttons {
+        justify-content: center;
       }
 
-      .hero-text h1{
-        font-size:52px;
+      .hero-text h1 {
+        font-size: 50px;
       }
 
-      nav{
-        display:none;
+      nav {
+        display: none;
       }
 
       .section-title h2,
-      .cta h2{
-        font-size:38px;
+      .cta h2 {
+        font-size: 36px;
       }
     }
+
   </style>
 </head>
+
 <body>
 
   <div class="background-glow"></div>
 
   <header>
-    <div class="logo">Safer Choice</div>
+
+    <div class="logo">
+      Safer Choice
+    </div>
 
     <nav>
       <a href="#features">Features</a>
-      <a href="#security">Security</a>
-      <a href="#stats">Stats</a>
-      <a href="#contact">Contact</a>
+      <a href="#technology">Technology</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#development">Development</a>
     </nav>
+
   </header>
+
+
+  <!-- HERO -->
 
   <section class="hero">
 
     <div class="hero-text">
+
+      <div class="badge">
+        SOFTWARE DEVELOPMENT PROJECT
+      </div>
+
       <h1>
-        Advanced Digital Protection & <span>Safer Choices</span>
+        Building Software For
+        <span>Safer Choices</span>
       </h1>
 
       <p>
-        Safer Choice je moderna security platforma fokusirana na digitalnu zaštitu, AI analizu rizika i bezbednije korišćenje interneta. Platforma kombinuje inteligentni monitoring, zaštitu privatnosti i moderan dashboard kako bi korisnicima pružila maksimalnu sigurnost.
+        Safer Choice is a software development project focused on
+        personal safety applications, real-time communication,
+        intelligent monitoring and mobile technologies.
+        The project combines application development, cloud
+        services and intelligent safety systems into one software
+        ecosystem.
       </p>
 
       <div class="buttons">
-        <a href="#features" class="primary-btn">Explore Platform</a>
-        <a href="#contact" class="secondary-btn">Get Started</a>
+
+        <a href="#technology" class="primary-btn">
+          Explore Technology
+        </a>
+
+        <a
+          href="https://github.com/"
+          target="_blank"
+          class="secondary-btn"
+        >
+          Development Resources
+        </a>
+
       </div>
+
     </div>
+
 
     <div class="hero-card">
 
-      <div class="status">
-        <div class="dot"></div>
-        Protection Active
+      <div class="terminal-header">
+
+        <div class="terminal-dot"></div>
+
+        <div class="terminal-dot"></div>
+
+        <div class="terminal-dot"></div>
+
+        <span class="terminal-title">
+          safer-choice / development
+        </span>
+
       </div>
 
-      <div class="scan-box">
-        <div class="scan-item">
-          <span>Threat Detection</span>
-          <span class="safe">Secured</span>
+
+      <div class="terminal">
+
+        <div>
+          <span class="green">$</span>
+          safer-choice --status
         </div>
 
-        <div class="scan-item">
-          <span>AI Safety Analysis</span>
-          <span class="safe">Running</span>
+        <div>
+          project:
+          <span class="blue">Safer Choice</span>
         </div>
 
-        <div class="scan-item">
-          <span>Suspicious Activity</span>
-          <span class="warning">Monitoring</span>
+        <div>
+          type:
+          <span class="blue">mobile software</span>
         </div>
 
-        <div class="scan-item">
-          <span>Privacy Shield</span>
-          <span class="safe">Enabled</span>
+        <div>
+          platform:
+          <span class="blue">Android</span>
         </div>
+
+        <div>
+          framework:
+          <span class="blue">Flutter</span>
+        </div>
+
+        <div>
+          backend:
+          <span class="blue">Firebase / API</span>
+        </div>
+
+        <div>
+          monitoring:
+          <span class="green">ACTIVE</span>
+        </div>
+
+        <div>
+          status:
+          <span class="green">RUNNING</span>
+        </div>
+
       </div>
 
     </div>
 
   </section>
+
+
+  <!-- FEATURES -->
 
   <section class="section" id="features">
 
     <div class="section-title">
-      <h2>Platform Features</h2>
+
+      <h2>
+        Software Features
+      </h2>
 
       <p>
-        Platforma kombinuje moderan dizajn, bezbednosne funkcije i jednostavno korisničko iskustvo kako bi zaštita bila dostupna svima.
+        Safer Choice is developed as a software platform with
+        multiple application and backend components designed to
+        communicate with each other in real time.
       </p>
+
     </div>
+
 
     <div class="features">
 
       <div class="feature-card">
-        <h3>AI Analysis</h3>
+
+        <div class="feature-number">
+          01 / MOBILE
+        </div>
+
+        <h3>
+          Mobile Application
+        </h3>
+
         <p>
-          Napredna analiza potencijalnih rizika i sumnjivih aktivnosti pomoću inteligentnih sistema.
+          A Flutter-based mobile application provides the main
+          user interface and connects users with the safety
+          features implemented by the platform.
         </p>
+
       </div>
 
-      <div class="feature-card">
-        <h3>Privacy Protection</h3>
-        <p>
-          Zaštita privatnosti i podataka korisnika kroz moderne sigurnosne standarde.
-        </p>
-      </div>
 
       <div class="feature-card">
-        <h3>Fast Monitoring</h3>
+
+        <div class="feature-number">
+          02 / COMMUNICATION
+        </div>
+
+        <h3>
+          Real-Time Communication
+        </h3>
+
         <p>
-          Brzo praćenje i upozorenja u realnom vremenu za potencijalno opasne aktivnosti.
+          The software architecture supports communication
+          between users, devices and backend services for
+          delivering safety notifications and events.
         </p>
+
       </div>
 
+
       <div class="feature-card">
-        <h3>Secure Dashboard</h3>
+
+        <div class="feature-number">
+          03 / INTELLIGENCE
+        </div>
+
+        <h3>
+          Intelligent Analysis
+        </h3>
+
         <p>
-          Jednostavan dashboard za pregled sigurnosti, analiza i statistike korisnika.
+          The project explores machine-learning and signal
+          analysis techniques that can be integrated into mobile
+          safety applications.
         </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-number">
+          04 / CLOUD
+        </div>
+
+        <h3>
+          Cloud Backend
+        </h3>
+
+        <p>
+          Backend services provide APIs, notification delivery,
+          application state management and communication between
+          the mobile application and cloud infrastructure.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-number">
+          05 / DEVICE
+        </div>
+
+        <h3>
+          Wearable Integration
+        </h3>
+
+        <p>
+          The project also explores integration between mobile
+          applications and wearable devices using Bluetooth
+          communication technologies.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-number">
+          06 / SECURITY
+        </div>
+
+        <h3>
+          Secure Software Design
+        </h3>
+
+        <p>
+          Application architecture focuses on secure
+          communication, controlled access and responsible
+          handling of application data.
+        </p>
+
       </div>
 
     </div>
 
   </section>
 
-  <section class="section" id="security">
+
+  <!-- TECHNOLOGY -->
+
+  <section class="section" id="technology">
 
     <div class="section-title">
-      <h2>Enterprise Grade Security</h2>
+
+      <h2>
+        Technology Stack
+      </h2>
 
       <p>
-        Fokus platforme je na sigurnosti, transparentnosti i modernim tehnologijama koje omogućavaju pouzdanu zaštitu korisnika.
+        The project is built using modern software development
+        technologies and frameworks.
       </p>
+
     </div>
 
-    <div class="stats" id="stats">
 
-      <div class="stat-card">
-        <h3>99%</h3>
-        <p>Threat Detection Accuracy</p>
+    <div class="tech-grid">
+
+      <div class="tech">
+        <strong>Flutter</strong>
+        <span>Mobile UI Framework</span>
       </div>
 
-      <div class="stat-card">
-        <h3>24/7</h3>
-        <p>Real-Time Monitoring</p>
+      <div class="tech">
+        <strong>Dart</strong>
+        <span>Application Language</span>
       </div>
 
-      <div class="stat-card">
-        <h3>256-bit</h3>
-        <p>Encrypted Protection</p>
+      <div class="tech">
+        <strong>Firebase</strong>
+        <span>Cloud Services</span>
       </div>
 
-      <div class="stat-card">
-        <h3>AI</h3>
-        <p>Powered Security Engine</p>
+      <div class="tech">
+        <strong>REST API</strong>
+        <span>Backend Communication</span>
+      </div>
+
+      <div class="tech">
+        <strong>Android</strong>
+        <span>Mobile Platform</span>
+      </div>
+
+      <div class="tech">
+        <strong>Bluetooth</strong>
+        <span>Device Communication</span>
       </div>
 
     </div>
 
   </section>
 
-  <section class="cta" id="contact">
 
-    <h2>Ready To Build A Safer Future?</h2>
+  <!-- ARCHITECTURE -->
+
+  <section class="section" id="architecture">
+
+    <div class="section-title">
+
+      <h2>
+        Software Architecture
+      </h2>
+
+      <p>
+        Safer Choice is designed as a multi-component software
+        system where the mobile client, backend services and
+        connected devices work together.
+      </p>
+
+    </div>
+
+
+    <div class="architecture">
+
+      <div class="architecture-card">
+
+        <h3>
+          Mobile Client
+        </h3>
+
+        <p>
+          The mobile application provides the user interface,
+          manages application permissions and communicates with
+          backend services.
+        </p>
+
+      </div>
+
+
+      <div class="architecture-card">
+
+        <h3>
+          Backend API
+        </h3>
+
+        <p>
+          Backend services process requests, maintain application
+          state and provide communication endpoints for clients.
+        </p>
+
+      </div>
+
+
+      <div class="architecture-card">
+
+        <h3>
+          Notification Layer
+        </h3>
+
+        <p>
+          Push notification services allow the application to
+          deliver important events and safety notifications.
+        </p>
+
+      </div>
+
+
+      <div class="architecture-card">
+
+        <h3>
+          Wearable Layer
+        </h3>
+
+        <p>
+          Bluetooth communication allows supported wearable
+          devices to exchange information with the mobile
+          application.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DEVELOPMENT -->
+
+  <section class="section" id="development">
+
+    <div class="section-title">
+
+      <h2>
+        Development Project
+      </h2>
+
+      <p>
+        Safer Choice is continuously developed as a software
+        engineering project. The project includes mobile
+        development, backend development, API integration,
+        device communication and experimentation with intelligent
+        analysis.
+      </p>
+
+    </div>
+
+
+    <div class="stats">
+
+      <div class="stat-card">
+
+        <h3>
+          Flutter
+        </h3>
+
+        <p>
+          Cross-platform application development
+        </p>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <h3>
+          API
+        </h3>
+
+        <p>
+          Backend communication
+        </p>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <h3>
+          AI
+        </h3>
+
+        <p>
+          Intelligent analysis research
+        </p>
+
+      </div>
+
+
+      <div class="stat-card">
+
+        <h3>
+          BLE
+        </h3>
+
+        <p>
+          Wearable device communication
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>
+      Safer Software Starts Here
+    </h2>
 
     <p>
-      Safer Choice pruža moderan pristup digitalnoj sigurnosti i pametnijem donošenju odluka online.
+      Safer Choice combines software engineering, mobile
+      development and connected devices to explore new approaches
+      to personal safety technology.
     </p>
 
-    <a href="#" class="primary-btn" onclick="showMessage()">
-      Launch Platform
+    <a
+      href="https://github.com/"
+      target="_blank"
+      class="primary-btn"
+    >
+      View Development
     </a>
 
   </section>
 
+
+  <!-- FOOTER -->
+
   <footer>
+
     <div>
       © 2026 Safer Choice
     </div>
 
     <div>
-      Secure • Modern • Reliable
+      Software Development Project
     </div>
-  </footer>
 
-  <script>
-    function showMessage(){
-      alert('Welcome to Safer Choice!');
-    }
-  </script>
+  </footer>
 
 </body>
 </html>
